@@ -1,15 +1,18 @@
-import axios from 'axios';
+import axios from "axios";
 
+const URL = "http://localhost:8000";
+
+console.log(URL);
 const productsApi = axios.create({
-    baseUrl: 'http://localhost:8000/products/api/v1/products'
+  baseURL: `${URL}/products/api/v1/products`,
 });
 
-export const getAllProducts = () => productsApi.get('/');
+export const getAllProducts = () => productsApi.get("/");
 
-export const getProduct = (id) => productsApi.get(`/${id}/`);
+export const getProduct = (id) => productsApi.get(`/${id}`);
 
-export const createProduct = (product) => productsApi.post('/', product);
+export const createProduct = (task) => productsApi.post("/", task);
 
-export const deleteProduct = (id) => productsApi.delete(`/${id}/`);
+export const updateProduct = (id, task) => productsApi.put(`/${id}/`, task);
 
-export const updateProduct = (id, product) => productsApi.put(`/${id}/`, product);
+export const deleteProduct = (id) => productsApi.delete(`/${id}`);
